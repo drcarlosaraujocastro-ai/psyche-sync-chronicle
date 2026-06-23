@@ -1,0 +1,21 @@
+import { ReactNode } from "react";
+
+export function PageHeader({
+  title,
+  description,
+  actions,
+}: {
+  title: string;
+  description?: string;
+  actions?: ReactNode;
+}) {
+  return (
+    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
+      <div className="min-w-0">
+        <h1 className="text-xl sm:text-2xl font-semibold tracking-tight truncate">{title}</h1>
+        {description && <p className="text-xs sm:text-sm text-muted-foreground mt-1 max-w-2xl">{description}</p>}
+      </div>
+      {actions && <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap sm:shrink-0">{actions}</div>}
+    </div>
+  );
+}

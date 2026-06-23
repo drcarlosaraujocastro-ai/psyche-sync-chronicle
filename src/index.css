@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media print {
+  body { background: white !important; }
+  .no-print, header, aside, nav { display: none !important; }
+  main { padding: 0 !important; overflow: visible !important; }
+  .print-area { box-shadow: none !important; border: none !important; }
+  .print-area * { color: black !important; }
+  .print-area .card, .print-area [class*="bg-"] { background: white !important; }
+  @page { margin: 18mm; }
+}
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Clinical Cockpit — claro */
+    --background: 210 30% 98%;
+    --foreground: 215 35% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 35% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 35% 12%;
+
+    --primary: 196 70% 28%;            /* azul-petróleo */
+    --primary-foreground: 196 30% 98%;
+
+    --secondary: 210 25% 94%;
+    --secondary-foreground: 215 35% 18%;
+
+    --muted: 210 25% 94%;
+    --muted-foreground: 215 15% 42%;
+
+    --accent: 196 60% 92%;
+    --accent-foreground: 196 80% 18%;
+
+    --destructive: 0 72% 48%;          /* risco */
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 36 95% 50%;             /* alerta âmbar */
+    --warning-foreground: 30 60% 12%;
+    --success: 152 55% 38%;            /* estabilidade */
+    --success-foreground: 152 30% 98%;
+    --info: 210 80% 48%;
+    --info-foreground: 210 30% 98%;
+
+    --border: 215 22% 88%;
+    --input: 215 22% 88%;
+    --ring: 196 70% 35%;
+
+    --radius: 0.625rem;
+
+    --sidebar-background: 215 38% 10%;
+    --sidebar-foreground: 210 25% 88%;
+    --sidebar-primary: 196 80% 55%;
+    --sidebar-primary-foreground: 215 38% 10%;
+    --sidebar-accent: 215 32% 16%;
+    --sidebar-accent-foreground: 210 25% 95%;
+    --sidebar-border: 215 30% 18%;
+    --sidebar-ring: 196 80% 55%;
+  }
+
+  .dark {
+    --background: 215 38% 8%;
+    --foreground: 210 25% 94%;
+
+    --card: 215 35% 11%;
+    --card-foreground: 210 25% 94%;
+
+    --popover: 215 35% 11%;
+    --popover-foreground: 210 25% 94%;
+
+    --primary: 196 75% 55%;
+    --primary-foreground: 215 38% 10%;
+
+    --secondary: 215 30% 16%;
+    --secondary-foreground: 210 25% 94%;
+
+    --muted: 215 30% 16%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 196 50% 22%;
+    --accent-foreground: 196 80% 88%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 36 95% 56%;
+    --warning-foreground: 30 60% 8%;
+    --success: 152 55% 48%;
+    --success-foreground: 152 30% 8%;
+    --info: 210 80% 60%;
+    --info-foreground: 210 30% 8%;
+
+    --border: 215 28% 20%;
+    --input: 215 28% 20%;
+    --ring: 196 75% 55%;
+
+    --sidebar-background: 215 42% 6%;
+    --sidebar-foreground: 210 25% 88%;
+    --sidebar-primary: 196 80% 60%;
+    --sidebar-primary-foreground: 215 42% 6%;
+    --sidebar-accent: 215 35% 12%;
+    --sidebar-accent-foreground: 210 25% 95%;
+    --sidebar-border: 215 30% 14%;
+    --sidebar-ring: 196 80% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  .clinical-grid {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
